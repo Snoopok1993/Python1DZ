@@ -14,13 +14,19 @@ def test_capitalize():
     assert utils.capitilize("123usa") == "123usa"
     
 #Проверки Trim
-@pytest.mark.parametrize('line, result', [(" hello","hello"),("H ello","H ello")])
+@pytest.mark.parametrize('line, result', [
+    #Positive
+    (" hello","hello"),
+    ("H ello","H ello"),
+    #Negative
+    ("","")
+    ])
 def test_trim(line, result):
     assert utils.trim(line) == result
 
 @pytest.mark.xfail
 def test_negative_trim_with_numbers():
-    assert utils.trim(" 123") == " 123"
+    assert utils.trim(123) == "123"
 
 @pytest.mark.xfail
 def test_negative_trim_with_space():
@@ -28,6 +34,7 @@ def test_negative_trim_with_space():
 
 #Проверка to_list
 @pytest.mark.parametrize('string, delimetr, result', [
+    #Positive
     ("dog,cat,bird", ",", ["dog","cat","bird"]),
     ("1,2,3,4", ",",["1","2","3","4"]),
     ("!*@*#*$", "*", ["!","@","#","$"]),
@@ -46,6 +53,7 @@ def test_to_list(string,delimetr,result):
 #Проверка Containce 
 
 @pytest.mark.parametrize('string,symbol,result',[
+    #Positive
     ("Father","h", True),
     ("Mother","M", True),
     (" Dog","o", True),
@@ -61,6 +69,7 @@ def test_contains(string,symbol,result):
 # Проверка Delete symbol
 
 @pytest.mark.parametrize('string,symbol,result',[
+    #Positive
     ("Одеяло","О","деяло"),
     ("парное молоко"," ","парноемолоко"),
     ("7575","5","77"),
@@ -77,14 +86,17 @@ def test_delete_symbol(string,symbol,result):
 # Проверка Starts_with
 
 @pytest.mark.parametrize('string,symbol,result',[
+    #Positive
     ("Swarrow","S",True),
     ("girlfriend","g",True),
     ("236","2",True),
-    #Negative
+    
     ("JhonSnow","f",False),
     ("Gregor","g",False),
     ("","%",False),
-    ("","",False)# ERROR см. Defects.txt
+    ("","",False),# ERROR см. Defects.txt
+    #Negative
+    (None,"f",False)
 ])
 def test_starts_with(string,symbol,result):
     res = utils.starts_with(string,symbol)
@@ -93,14 +105,18 @@ def test_starts_with(string,symbol,result):
     #Проверка end_with 
 
 @pytest.mark.parametrize('string,symbol,result',[
+    #Positive
     ("Dragon","n", True),
     ("HarryPotter","r", True),
     ("victory","y", True),
     ("6777","7", True),
-    #Negative
+    
     ("Loop","P",False),
     ("city","z",False),
-    ("","6",False)
+    ("","6",False),
+    #Negative
+    (["L","O","L"],"L",False)
+    
 ])
 def test_end_with(string,symbol,result):
     res = utils.end_with(string,symbol)
@@ -109,13 +125,17 @@ def test_end_with(string,symbol,result):
 # Проверка is_empty
 
 @pytest.mark.parametrize('string,result',[
+    #Positive
     ("",True),
     (" ",True),
     ("  ",True),
-    #Negative
+    
     ("123",False),
     ("Hiii",False),
-    ("@#$",False)
+    ("@#$",False),
+    #Negative
+    (123,False),
+    (None,False)
 ])
 def test_is_empty(string,result):
     res = utils.is_empty(string)
