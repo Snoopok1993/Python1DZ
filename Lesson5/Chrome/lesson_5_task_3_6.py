@@ -4,7 +4,9 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 
-driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+driver = webdriver.Chrome(
+    service=ChromeService(
+        ChromeDriverManager().install()))
 
 try:
     driver.get("http://the-internet.herokuapp.com/login")
@@ -19,8 +21,7 @@ try:
     sleep(2)
 
 except Exception as ex:
-    print (ex)
+    print(ex)
 finally:
     driver.quit()
-
     

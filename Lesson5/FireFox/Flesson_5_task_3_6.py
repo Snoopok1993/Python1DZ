@@ -4,7 +4,9 @@ from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.common.by import By
 
-driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
+driver = webdriver.Firefox(
+    service=FirefoxService(
+        GeckoDriverManager().install()))
 
 try:
     driver.get("http://the-internet.herokuapp.com/login")
@@ -19,7 +21,7 @@ try:
     sleep(2)
 
 except Exception as ex:
-    print (ex)
+    print(ex)
 finally:
     driver.quit()
 

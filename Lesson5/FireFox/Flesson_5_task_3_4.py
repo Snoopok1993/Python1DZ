@@ -7,7 +7,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
+driver = webdriver.Firefox(
+    service=FirefoxService(
+        GeckoDriverManager().install()))
 
 try:
     driver.get(" http://the-internet.herokuapp.com/entry_ad")
@@ -26,7 +28,6 @@ try:
     sleep(2)
 
 except Exception as ex:
-    print (ex)
+    print(ex)
 finally:
     driver.quit()
-    
