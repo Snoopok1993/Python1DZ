@@ -49,12 +49,7 @@ class FormPage:
         field_locator = self.form_fields.get(field_name.lower()) # First_Name first_name
         if field_locator:
             self.wait.until(EC.visibility_of_element_located(field_locator)).send_keys(value)
-
-    def scroll_form(self):
-        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         
-
-
     def submit_form(self):
         """Отправить форму на веб-странице."""
         submit_button = self.wait.until(EC.element_to_be_clickable(self.submit_button))

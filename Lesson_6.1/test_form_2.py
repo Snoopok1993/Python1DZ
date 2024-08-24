@@ -36,9 +36,7 @@ def test_fill_form_and_verify_highlight(driver_setup):
     driver_setup.fill_form("phone", "+7985899998787")
     driver_setup.fill_form("job_position", "QA")
     driver_setup.fill_form("company", "SkyPro")
-
-    driver_setup.scroll_form()
-
+    
     # Шаг 12: Нажатие на кнопку Submit
     driver_setup.submit_form()
 
