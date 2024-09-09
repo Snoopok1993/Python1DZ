@@ -28,7 +28,7 @@ def test_add_employer(get_token):
         'url': 'string',
         'phone': '+79288119108',
         'birthdate': '2024-09-04T17:57:37.050Z',
-        'isActive': 'true'
+        'isActive': True
     }
     new_employer_id = employer.add_employee_into_company(token, body_employer)['id']
     assert new_employer_id is not None
@@ -55,7 +55,7 @@ def test_add_employer_without_token():
         'url': 'string',
         'phone': '+79288119108',
         'birthdate': '2024-09-04T17:57:37.050Z',
-        'isActive': 'true'
+        'isActive': True
     }
     new_employer = employer.add_employee_into_company(token,body_employer)
     assert new_employer['message'] == 'Unauthorized'
