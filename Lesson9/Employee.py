@@ -1,11 +1,11 @@
 import requests
-from Lesson8.constants import X_client_URl
+from Lesson9.conftest import url
 import json
 
 path = '/employee'
 
 class Company:
-    def __init__(self,url=X_client_URl):
+    def __init__(self,url=url):
         self.url = url
 
 # Вызываем последнюю активную компанию 
@@ -15,7 +15,7 @@ class Company:
         return response.json()[-1]['id']
    
 class Employer:
-    def __init__(self,url=X_client_URl):
+    def __init__(self,url=url):
         self.url = url
 
 # Получить список сотрудников компании

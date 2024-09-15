@@ -53,9 +53,9 @@ def test_info_for_employer():
     db.create_employer(max_id,"Admin","littleAdmin", 9888845678)
     employer_id = db.get_employer_id(max_id)
     # Cравниваем информацию о сотруднике полученую через АПИ с инфо полученую через БД
-    get_api_info = (api.get_info_for_employee(employer_id)).json
+    get_api_info = (api.get_info_for_employee(employer_id)).json()
     assert get_api_info["firstName"] == "Admin"
-    assert get_api_info["lastName"] == "Games"
+    assert get_api_info["lastName"] == "littleAdmin"
     assert get_api_info["phone"] == 9888845678
     # Удаляем созданного сотрудника БД
     db.delete_employer(employer_id)
