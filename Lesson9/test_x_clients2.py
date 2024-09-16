@@ -56,7 +56,7 @@ def test_info_for_employer():
     get_api_info = (api.get_info_for_employee(employer_id)).json()
     assert get_api_info["firstName"] == "Admin"
     assert get_api_info["lastName"] == "littleAdmin"
-    assert get_api_info["phone"] == 9888845678
+    assert get_api_info["phone"] == '9888845678'
     # Удаляем созданного сотрудника БД
     db.delete_employer(employer_id)
     # Удаляем компанию БД

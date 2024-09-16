@@ -2,7 +2,7 @@ import requests
 from Lesson9.conftest import url
 import json
 
-path = '/employee'
+path = '/employee/'
 
 class Company:
     def __init__(self,url=url):
